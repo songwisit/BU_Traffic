@@ -19,13 +19,31 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         bindWidget();
+
+        //Receive Value from Intent
+        receiveFromIntent();
     } // Main Method
 
+    private void receiveFromIntent() {
+
+        String strTitle = getIntent().getStringExtra("Title");
+        titleTextView.setText(strTitle);
+
+        int intImage = getIntent().getIntExtra("Image", R.drawable.traffic_01);
+        detailImageView.setImageResource(intImage);
+
+        String[] strDetail = getResources().getStringArray(R.array.detail);
+        int intIndex  = getIntent().getIntExtra("Index",0);
+        detailTextView.setText(strDetail[intIndex]);
+
+    }
+
+
     private void bindWidget() {
-        private void bindWidget() {
-            titleTextView = (TextView) findViewById(R.id.textView3);
-            detailTextView = (TextView) findViewById(R.id.textView4);
-            detailImageView = (ImageView) findViewById(R.id.imageView2);
-        }
+
+        titleTextView = (TextView) findViewById(R.id.textView3);
+        detailTextView = (TextView) findViewById(R.id.textView4);
+        detailImageView = (ImageView) findViewById(R.id.imageView2);
+
     }
 } // Main Class

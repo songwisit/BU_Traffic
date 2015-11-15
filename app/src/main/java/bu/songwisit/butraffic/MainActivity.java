@@ -31,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
     } // Main Method
 
+    public void clickExercise(View view) {
+        startActivity(new Intent(MainActivity.this, ExerciseActivity.class));
+    }
+
     private void createListView() {
 
         //Setup Array
